@@ -23,3 +23,17 @@ Frameworks to use
 * Hamcrest
 * Truth
 
+# 49 Grouped Assertions
+
+```shell
+    @Test
+    void groupedAssertions2() {
+        // given
+        Person person = new Person(11L, "Joe", "Buck");
+        // then
+        assertAll("Test Props Set",
+                () -> assertEquals(person.getFirstName(), "Joe 2"),
+                () -> assertEquals(person.getLastName(), "Buck 2")
+        );
+    }
+```
