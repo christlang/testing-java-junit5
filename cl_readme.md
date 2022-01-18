@@ -59,3 +59,8 @@ Frameworks to use
             );
     }
 ```
+
+# 54. Timeouts
+
+* assertTimeout
+* assertTimeoutPreemptive - eigener Thread der originalen Thread nach timeout abschießt
