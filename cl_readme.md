@@ -168,3 +168,7 @@ class NestedClass {
 
 
 ```
+
+# 65. JUnit Test Interfaces
+
+Testklassen können Interfaces implementieren
