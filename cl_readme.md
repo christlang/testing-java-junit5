@@ -96,3 +96,28 @@ Frameworks to use
             <scope>test</scope>
         </dependency>
 ```
+
+```groovy
+// AssertJ
+assertThat(controller.index()).isEqualTo("index");
+```
+
+# 58. Using Hamcrest with JUnit
+
+* https://search.maven.org/search?q=g:org.hamcrest
+* https://github.com/hamcrest/JavaHamcrest
+
+```xml
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+```
+
+
+```groovy
+// hamcrest
+assertThat(owner.getCity(), is("Key West"));
+```
