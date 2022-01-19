@@ -71,3 +71,13 @@ Frameworks to use
 * unterschiedliche Tests in Environments
   * assumeTrue -> bei Fehlschlag wird Test als deaktiviert angezeigt
 
+# 56. Conditional Test Execution
+
+* https://junit.org/junit5/docs/current/user-guide/#writing-tests-conditional-execution
+
+* Bedingt auf
+  * OS - @EnabledOnOs(OS.WINDOWS)
+  * Java Runtime Environment - @EnabledOnJre(JRE.JAVA_17)
+  * System Property
+  * Environment Variable - @EnabledIfEnvironmentVariable(named="USER", matches="lange")
+  * Custom Conditions
