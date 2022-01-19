@@ -1,9 +1,14 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import guru.springframework.sfgpetclinic.fauxspring.Model;
+import guru.springframework.sfgpetclinic.fauxspring.ModelMap;
+import guru.springframework.sfgpetclinic.fauxspring.ModelMapImpl;
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.model.Vet;
+import guru.springframework.sfgpetclinic.services.SpecialtyService;
 import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.map.SpecialityMapService;
+import guru.springframework.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,91 +20,40 @@ import static org.junit.jupiter.api.Assertions.*;
 class VetControllerTest {
 
     VetController controller;
-    private VetServiceMock vetServiceMock;
-    private ModelMock modelMock;
-
-    static class VetServiceMock implements VetService {
-
-        Set<Vet> store = new HashSet<>();
-
-        @Override
-        public Set<Vet> findAll() {
-            return store;
-        }
-
-        @Override
-        public Vet findById(Long aLong) {
-            return null;
-        }
-
-        @Override
-        public Vet save(Vet object) {
-            store.add(object);
-
-            return object;
-        }
-
-        @Override
-        public void delete(Vet object) {
-
-        }
-
-        @Override
-        public void deleteById(Long aLong) {
-
-        }
-    }
-
-    static class ModelMock implements Model {
-
-        Map<String, Object> store = new HashMap<>();
-        Object attribute;
-
-
-        @Override
-        public void addAttribute(String key, Object o) {
-            store.put(key, o);
-        }
-
-        @Override
-        public void addAttribute(Object o) {
-            attribute = o;
-        }
-    }
+    private SpecialtyService specialtyService;
+    private VetMapService vetService;
 
     @BeforeEach
     void setUp() {
-        modelMock = new ModelMock();
-        vetServiceMock = new VetServiceMock();
-        controller = new VetController(vetServiceMock);
+        specialtyService = new SpecialityMapService();
+        vetService = new VetMapService(specialtyService);
+
+        controller = new VetController(vetService);
+        Vet vet1 = new Vet(1L, "melissa", "hover", null);
+        Vet vet2 = new Vet(2L, "charles", "soper", null);
+
+        vetService.save(vet1);
+        vetService.save(vet2);
     }
 
     @Test
-    @DisplayName("right template is returned")
+    @DisplayName("listVets: right template is returned")
     void listVetsTemplate() {
-        String result = controller.listVets(modelMock);
+        ModelMapImpl model = new ModelMapImpl();
+        String result = controller.listVets(model);
 
         assertEquals("vets/index", result);
     }
 
     @Test
-    @DisplayName("Vets can be returned, empty List")
+    @DisplayName("listVets: returns list")
     void listVetsEmpty() {
-        controller.listVets(modelMock);
+        ModelMapImpl model = new ModelMapImpl();
 
-        assertTrue( modelMock.store.containsKey("vets"), "no attribute with name vets was added");
-        Set<Vet> vets = new HashSet<>();
-        assertEquals(vets, modelMock.store.get("vets"));
+        controller.listVets(model);
+
+        Set<Vet> result = (Set) model.getMap().get("vets");
+        assertEquals(2, result.size());
     }
 
-    @Test
-    @DisplayName("Vets can be returned, one element")
-    void listVetsOneElement() {
-        vetServiceMock.save(new Vet(1L, "first name", "last name", new HashSet<>()));
-        controller.listVets(modelMock);
-
-        Set<Vet> vets = new HashSet<>();
-        vets.add(new Vet(1L, "first name", "last name", new HashSet<>()));
-        assertEquals(vets, modelMock.store.get("vets"));
-    }
 }
