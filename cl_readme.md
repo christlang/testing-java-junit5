@@ -121,3 +121,12 @@ assertThat(controller.index()).isEqualTo("index");
 // hamcrest
 assertThat(owner.getCity(), is("Key West"));
 ```
+
+# 59. Assignment - Write JUnit Test for VetController List Vets
+
+* Create new Test for VetController
+* Test List Vets Method
+* Verify return value for view name
+* Use VetMapService - Add two or more vets
+* Create Model Implementation
+* Verify value List value is added to Model Object (HashMap)
