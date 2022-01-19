@@ -130,3 +130,19 @@ assertThat(owner.getCity(), is("Key West"));
 * Use VetMapService - Add two or more vets
 * Create Model Implementation
 * Verify value List value is added to Model Object (HashMap)
+
+
+# 63. Tagging and Filtering JUnit Tests
+
+```groovy
+@Tag("tagName")
+class a {
+  
+}
+```
+
+* Test-Ausführung auf Tags einschränken (intellij)
+  * unit-tests
+  * integration-tests
+  * message-queue-tests
+  * ...
