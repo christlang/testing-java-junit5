@@ -64,3 +64,10 @@ Frameworks to use
 
 * assertTimeout
 * assertTimeoutPreemptive - eigener Thread der originalen Thread nach timeout abschießt
+
+
+# 55. Assumption
+
+* unterschiedliche Tests in Environments
+  * assumeTrue -> bei Fehlschlag wird Test als deaktiviert angezeigt
+
