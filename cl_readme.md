@@ -146,3 +146,25 @@ class a {
   * integration-tests
   * message-queue-tests
   * ...
+
+
+# 64. JUnit Nested Tests
+
+```groovy
+@DisplayName("prefix wenn auf Klassenebene genutzt")
+
+//...
+
+@Nested
+class NestedClass {
+  
+  // tests
+  
+  @Nested
+  class NestedNexLevel {
+    // tests
+  }
+}
+
+
+```
