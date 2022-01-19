@@ -81,3 +81,18 @@ Frameworks to use
   * System Property
   * Environment Variable - @EnabledIfEnvironmentVariable(named="USER", matches="lange")
   * Custom Conditions
+
+
+# 57. Using AssertJ with JUnit
+
+* https://github.com/assertj/assertj-core
+* https://assertj.github.io/doc/
+
+```xml
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
+            <scope>test</scope>
+        </dependency>
+```
