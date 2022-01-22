@@ -172,3 +172,17 @@ class NestedClass {
 # 65. JUnit Test Interfaces
 
 Testklassen können Interfaces implementieren
+
+
+# 68. JUnit Test Dependency Injection
+
+* TestInfo -> test name, method, class, tags
+* RepetitionInfo -> test repetition
+* TestReporter -> publish runtime info for test reporting
+
+```groovy
+@RepeatedTest(5)
+void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
+  System.out.println(testInfo.getDisplayName() + ":" + repititionInfo.getCurrentRepition());
+}
+```
