@@ -331,3 +331,11 @@ void fromCustomProviderTest(String stateName, int val1, int val2) {
 }
 
 ```
+
+
+# 78. Unit Tests vs Integration Tests
+
+* UnitTests -> Test
+* IntegrationTests -> IT
+
+
