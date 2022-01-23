@@ -411,3 +411,10 @@ class TimingExtensionTests {
 
 * 60-70% Maven
 * Gradle is coming
+
+## 82. Running Tests from IDE
+
+* Environment-Variables for passwords ...
+  * API_KEY=Some val
+* Run with Test-Coverage
+  * 70-80% sollte angestrebt werden
