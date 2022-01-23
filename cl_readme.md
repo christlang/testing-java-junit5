@@ -273,3 +273,16 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
         System.out.println(stateName + " = " + val1 + ":" + val2);
     }
 ```
+
+
+# 75. JUnit Parameterized Test - CSV File Source
+
+
+```groovy
+    @DisplayName("CSV From File Test")
+    @ParameterizedTest(name = "{displayName} [{index}] - {arguments}")
+    @CsvFileSource(resources = "/input.csv", numLinesToSkip = 1)
+    void csvFromFileTest(String stateName, int val1, int val2) {
+        System.out.println(stateName + " = " + val1 + ":" + val2);
+    }
+```
