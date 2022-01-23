@@ -30,17 +30,15 @@ class PersonTest implements ModelTests {
 //        );
 //    }
 
-    @BeforeEach
-    void setUp(TestInfo ti, TestReporter tr) {
-        System.out.println(ti);
-        System.out.println(tr);
-    }
-
     @DisplayName("try it")
     @RepeatedTest(3)
     void repeatedTest(RepetitionInfo ri) {
         System.out.println("try: " + ri.getCurrentRepetition());
 
+    }    @RepeatedTest(value = 5, name = "{displayName} | {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Assignment Repeated Test")
+    void myAssignmentRepeated() {
+        // todo impl
     }
 
 }

@@ -193,3 +193,22 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
 * Customize DisplayName of repeated test using palceholders
 * Create default BeforeEachMethod to output test information (name, iteration)
   * Use Interface!
+
+# 70. Assignment Review
+
+* RepetitionInfo only available on RepetionTests
+
+```groovy
+
+    @BeforeEach
+    default void beforeEachConsoleOutputer(TestInfo ti, RepetitionInfo ri) {
+        System.out.println("Running Test - " + ti.getDisplayName() + " - "
+        + ri.getCurrentRepetition() + " | " + ri.getTotalRepetitions());
+    }
+
+    @RepeatedTest(value = 5, name = "{displayName} | {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Assignment Repeated Test")
+    void myAssignmentRepeated() {
+      // todo impl
+    }
+```
