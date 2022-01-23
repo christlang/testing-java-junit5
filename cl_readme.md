@@ -186,3 +186,10 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
   System.out.println(testInfo.getDisplayName() + ":" + repititionInfo.getCurrentRepition());
 }
 ```
+
+# 69. Assignment - JUnit Dependency Injection
+
+* Create new Repeated Test PersonTest
+* Customize DisplayName of repeated test using palceholders
+* Create default BeforeEachMethod to output test information (name, iteration)
+  * Use Interface!
