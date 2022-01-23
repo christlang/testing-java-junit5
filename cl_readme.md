@@ -233,7 +233,7 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
     }
 ```
 
-#72. JUnit Parameterized Test - Display Name
+# 72. JUnit Parameterized Test - Display Name
 
 ```groovy
 
@@ -246,7 +246,16 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
 
 ```
 
+# 73. JUnit Parameterized Test - ENUM Source
 
+```groovy
 
+    @DisplayName("Enum Source Test")
+    @ParameterizedTest(name = "{displayName} [{index}] - {arguments}")
+    @EnumSource(OwnerType.class)
+    void enumTest(OwnerType ownerType) {
+        System.out.println(ownerType);
+    }
 
+```
 

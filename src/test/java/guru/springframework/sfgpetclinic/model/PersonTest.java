@@ -3,6 +3,7 @@ package guru.springframework.sfgpetclinic.model;
 import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -51,4 +52,10 @@ class PersonTest implements ModelTests {
         System.out.println(val);
     }
 
+    @DisplayName("Enum Source Test")
+    @ParameterizedTest(name = "{displayName} [{index}] - {arguments}")
+    @EnumSource(OwnerType.class)
+    void enumTest(OwnerType ownerType) {
+        System.out.println(ownerType);
+    }
 }
