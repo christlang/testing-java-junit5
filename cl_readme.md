@@ -418,3 +418,19 @@ class TimingExtensionTests {
   * API_KEY=Some val
 * Run with Test-Coverage
   * 70-80% sollte angestrebt werden
+
+## 83. Maven Surefire Plugin
+
+* maven
+  * clean
+  * compile
+  * test -> surefire
+
+```shell
+mvn clean test
+
+./mvnw clean test
+```
+
+
+
