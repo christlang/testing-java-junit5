@@ -306,3 +306,28 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
     }
 
 ```
+
+
+# 77. JUnit Parameterized Test - Custom Provider
+
+
+```groovy
+public class CustomArgsProvider implements ArgumentsProvider {
+
+    @Override
+    public Stream<? extends Arguments> provideArguments(ExtensionContext extensionContext) throws Exception {
+        return Stream.of(
+                Arguments.of("FL", 7, 1),
+                Arguments.of("OH", 11, 8),
+                Arguments.of("MI", 4, 5));
+    }
+}
+
+@DisplayName("Custom Provider Test")
+@ParameterizedTest(name = "{displayName} [{index}] - {arguments}")
+@ArgumentsSource(CustomArgsProvider.class)
+void fromCustomProviderTest(String stateName, int val1, int val2) {
+  System.out.println(stateName + " = " + val1 + ":" + val2);
+}
+
+```
