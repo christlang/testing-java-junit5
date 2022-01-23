@@ -232,3 +232,21 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
         System.out.println(val);
     }
 ```
+
+#72. JUnit Parameterized Test - Display Name
+
+```groovy
+
+    @DisplayName("Value Source Test ")
+    @ParameterizedTest(name = "{displayName} [{index}] - {arguments}")
+    @ValueSource(strings = {"Spring", "Framework", "Guru"})
+    void testValueSource(String val) {
+        System.out.println(val);
+    }
+
+```
+
+
+
+
+
