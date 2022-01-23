@@ -212,3 +212,23 @@ void myRepeatedTestWithDi(TestInfo testInfo, RepitionInfo repititionInfo) {
       // todo impl
     }
 ```
+
+
+# 71. JUnit Parameterized Tests - Value Source
+
+```xml
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+```
+
+```groovy
+    @ParameterizedTest
+    @ValueSource(strings = {"Spring", "Framework", "Guru"})
+    void testValueSource(String val) {
+        System.out.println(val);
+    }
+```
