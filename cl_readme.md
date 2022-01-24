@@ -462,3 +462,34 @@ mvn clean verify
 
 * target/failsafe-repots/...
 * target/surefire-reports/...
+
+## 85. Maven Surefire Test Report
+
+```xml
+<project>
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-site-plugin</artifactId>
+              <version>3.10.0</version>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
+```
+
+```shell
+mvn site
+```
+
+* target/site/index.html
