@@ -112,6 +112,8 @@
                     <argLine>
                         --illegal-access=permit
                     </argLine>
+                    <groups>controllers</groups>
+                    <excludedGroups>models</excludedGroups>
                 </configuration>
                 <executions>
                     <execution>

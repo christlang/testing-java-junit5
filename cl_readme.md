@@ -493,3 +493,30 @@ mvn site
 ```
 
 * target/site/index.html
+
+## 86. Executing JUnit Test with Tags in Maven
+
+* Tag Expressions for maven-surefire-plugin
+
+```xml
+            <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-failsafe-plugin</artifactId>
+  <version>2.22.0</version>
+  <configuration>
+    <argLine>
+      --illegal-access=permit
+    </argLine>
+    <groups>controllers</groups>
+    <excludedGroups>!controllers</excludedGroups>
+  </configuration>
+  <executions>
+    <execution>
+      <goals>
+        <goal>integration-test</goal>
+        <goal>verify</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+```
