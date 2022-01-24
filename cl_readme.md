@@ -520,3 +520,9 @@ mvn site
   </executions>
 </plugin>
 ```
+
+## 87. Running Tests from CI Builds With Maven
+
+* Circle-CI
+* https://circleci.com/ <-> github actions
+* .circleci/config.yml
